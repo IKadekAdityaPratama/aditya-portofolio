@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JavaScript Task | Aditya</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+
+<body class="bg-slate-50 text-slate-900">
+
+
+
+<!-- NAVBAR -->
+
+<nav class="
+fixed top-0 w-full z-50
+bg-white/80
+backdrop-blur-xl
+border-b">
+
+
+<div class="
+max-w-6xl mx-auto
+px-6 py-5
+flex justify-between">
+
+
+<h1 class="text-2xl font-bold">
+
+Aditya<span class="text-blue-600">.Dev</span>
+
+</h1>
+
+
+<a href="index.html"
+class="text-slate-600 hover:text-blue-600">
+
+← Home
+
+</a>
+
+
+</div>
+
+</nav>
+
+
+
+
+
+
+
+<section class="
+min-h-screen
+flex
+items-center
+pt-20">
+
+
+<div class="
+max-w-xl
+w-full
+mx-auto
+px-6">
+
+
+
+<div class="
+bg-white
+rounded-3xl
+shadow-xl
+border
+p-8">
+
+
+
+<div class="text-center">
+
+
+<p class="
+text-blue-600
+font-semibold">
+
+JAVASCRIPT TASK
+
+</p>
+
+
+
+<h1 class="
+text-3xl
+font-bold
+mt-3">
+
+Kalkulator Nilai Mahasiswa
+
+</h1>
+
+
+
+<p class="
+text-slate-500
+mt-3">
+
+Menghitung nilai akhir mahasiswa secara otomatis.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- FORM -->
+
+
+<div class="
+mt-8
+space-y-5">
+
+
+
+<div>
+
+
+<label class="font-medium">
+
+Nama Mahasiswa
+
+</label>
+
+
+<input id="nama"
+
+type="text"
+
+placeholder="Masukkan nama"
+
+class="
+w-full
+mt-2
+p-3
+rounded-xl
+border
+outline-none
+focus:border-blue-600">
+
+
+</div>
+
+
+
+
+
+
+<div class="
+grid
+grid-cols-3
+gap-3">
+
+
+<div>
+
+<label>
+
+Tugas
+
+</label>
+
+
+<input id="tugas"
+type="number"
+
+class="
+w-full
+mt-2
+p-3
+rounded-xl
+border
+focus:border-blue-600">
+
+</div>
+
+
+
+<div>
+
+<label>
+
+UTS
+
+</label>
+
+
+<input id="uts"
+type="number"
+
+class="
+w-full
+mt-2
+p-3
+rounded-xl
+border
+focus:border-blue-600">
+
+</div>
+
+
+
+
+<div>
+
+<label>
+
+UAS
+
+</label>
+
+
+<input id="uas"
+type="number"
+
+class="
+w-full
+mt-2
+p-3
+rounded-xl
+border
+focus:border-blue-600">
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<button onclick="hitungNilai()"
+
+class="
+w-full
+bg-blue-600
+text-white
+py-3
+rounded-xl
+font-semibold
+hover:bg-blue-700
+hover:scale-105
+transition">
+
+
+Hitung Nilai
+
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+<!-- HASIL -->
+
+
+<div id="hasil"
+
+class="
+hidden
+mt-8
+bg-blue-50
+rounded-2xl
+p-6
+border
+border-blue-200">
+
+
+<h2 class="
+font-bold
+text-xl
+mb-3">
+
+Hasil
+
+</h2>
+
+
+
+<div id="output"
+class="text-slate-700">
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<script>
+
+
+function hitungNilai(){
+
+
+let nama =
+document.getElementById("nama").value;
+
+
+let tugas =
+Number(document.getElementById("tugas").value);
+
+
+let uts =
+Number(document.getElementById("uts").value);
+
+
+let uas =
+Number(document.getElementById("uas").value);
+
+
+
+
+if(
+nama=="" ||
+isNaN(tugas) ||
+isNaN(uts) ||
+isNaN(uas)
+){
+
+alert("Lengkapi semua data!");
+
+return;
+
+}
+
+
+
+
+
+let rata =
+(tugas+uts+uas)/3;
+
+
+
+let grade;
+
+
+
+if(rata>=85){
+
+grade="A";
+
+}
+
+else if(rata>=75){
+
+grade="B";
+
+}
+
+else if(rata>=65){
+
+grade="C";
+
+}
+
+else if(rata>=50){
+
+grade="D";
+
+}
+
+else{
+
+grade="E";
+
+}
+
+
+
+
+
+let status =
+rata>=60
+?
+"Lulus"
+:
+"Tidak Lulus";
+
+
+
+
+
+document
+.getElementById("hasil")
+.classList.remove("hidden");
+
+
+
+document
+.getElementById("output")
+.innerHTML=`
+
+<p>
+Nama :
+<b>${nama}</b>
+</p>
+
+
+<p>
+Nilai Akhir :
+<b>${rata.toFixed(2)}</b>
+</p>
+
+
+<p>
+Grade :
+<b>${grade}</b>
+</p>
+
+
+<p>
+Status :
+<b>${status}</b>
+</p>
+
+`;
+
+
+
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>
